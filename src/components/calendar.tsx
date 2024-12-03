@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 type CalendarType = {
+  //this is an index signature
   [month: number]: Date[];
 };
 const Calendar = () => {

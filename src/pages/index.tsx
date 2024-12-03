@@ -1,16 +1,16 @@
-import Calendar from "../components/calendar"
+import { Link } from "wouter";
+import Calendar from "../components/calendar";
 
-
-function Site() {
-
+function Home() {
   return (
     <>
-    <div>
-      <h1 className='text-center font-bold text-2xl'>Kitab Ghar</h1>
-      <Calendar />
-      </div>     
+      <div>
+        <h1 className="text-center font-bold text-2xl">Kitab Ghar</h1>
+        <Calendar />
+        <Link to="/who-we-are">What is Kitab Ghar ?</Link>
+      </div>
     </>
-  )
+  );
 }
 
-export default Site
+export default Home;
