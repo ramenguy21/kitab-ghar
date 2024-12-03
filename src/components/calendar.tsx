@@ -4,7 +4,10 @@ type CalendarType = {
   [month: number]: Date[];
 };
 const Calendar = () => {
-  function generateData(year: number) {
+  // Since date isn't reactive, it's fine to define it like this I think.
+  const date = new Date();
+
+  function generateCalendar(year: number) {
     const data: CalendarType = [];
 
     for (let month = 0; month < 12; month++) {
@@ -19,11 +22,7 @@ const Calendar = () => {
     return data;
   }
 
-  const [calendar, setCalendar] = useState<CalendarType>({});
-
-  function getMonthData(month: number) {
-    return calendar[month];
-  }
+  const [calendar, setCalendar] = useState<CalendarType>([]);
 
   const monthNames = new Map([
     [1, "January"],
@@ -41,27 +40,36 @@ const Calendar = () => {
   ]);
 
   useEffect(() => {
-    const year = new Date().getFullYear();
-    setCalendar(generateData(year));
+    const year = date.getFullYear();
+    setCalendar(generateCalendar(year));
   }, []);
 
   return (
-    <div>
-      <h1>Calendar for {monthNames.get(new Date().getMonth())}</h1>
+    <div className="bg-cyan-400">
+      <h1 className="text-center">
+        Calendar for {monthNames.get(date.getMonth())}
+      </h1>
       <div className="">
         <div className="grid grid-cols-7 gap-2">
-          {getMonthData(new Date().getMonth()).map((day) => {
-            return (
-              <div className="m-2 rounded text-white bg-blue-500 w-fit m-auto">
-                {day
-                  .toDateString()
-                  .split(" ")
-                  .map((el) => (
-                    <p className="text-xs text-center">{el}</p>
-                  ))}
-              </div>
-            );
-          })}
+          {
+            //Extract out day names and add them as the first row
+            calendar[date.getMonth()] &&
+              calendar[date.getMonth()]
+                .slice(0, 7)
+                .map((dayDP) => (
+                  <p className="text-center font-bold text-white">
+                    {dayDP.toDateString().split(" ")[0]}
+                  </p>
+                ))
+          }
+          {calendar[date.getMonth()] &&
+            calendar[date.getMonth()].map((day) => {
+              return (
+                <div className="m-2 p-2 rounded text-white bg-blue-500 w-fit m-auto">
+                  <p>{day.toDateString().split(" ")[2]}</p>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
