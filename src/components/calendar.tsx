@@ -4,6 +4,21 @@ type CalendarType = {
   //this is an index signature
   [month: number]: Date[];
 };
+
+export const monthNames = new Map([
+  [1, "January"],
+  [2, "Feburary"],
+  [3, "March"],
+  [4, "April"],
+  [5, "May"],
+  [6, "June"],
+  [7, "July"],
+  [8, "August"],
+  [9, "September"],
+  [10, "October"],
+  [11, "November"],
+  [12, "December"],
+]);
 const Calendar = () => {
   // Since date isn't reactive, it's fine to define it like this I think.
   const date = new Date();
@@ -24,21 +39,6 @@ const Calendar = () => {
   }
 
   const [calendar, setCalendar] = useState<CalendarType>([]);
-
-  const monthNames = new Map([
-    [1, "January"],
-    [2, "Feburary"],
-    [3, "March"],
-    [4, "April"],
-    [5, "May"],
-    [6, "June"],
-    [7, "July"],
-    [8, "August"],
-    [9, "September"],
-    [10, "October"],
-    [11, "November"],
-    [12, "December"],
-  ]);
 
   useEffect(() => {
     const year = date.getFullYear();
