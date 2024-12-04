@@ -7,7 +7,7 @@ interface HomeLayoutProps {
 }
 
 function HomeLayout({ children }: HomeLayoutProps) {
-  const [match, params] = useRoute("/");
+  const [match] = useRoute("/");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const links = [
