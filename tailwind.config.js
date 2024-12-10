@@ -14,6 +14,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brand: {
+          dark_green: "#0DC19A",
+          green: "#0BD3B2",
+          pink: "#FFC4E1",
+          black: "#1B1919",
+          white: "#FFFCF6",
+        },
       },
     },
   },

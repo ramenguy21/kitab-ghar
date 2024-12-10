@@ -18,14 +18,12 @@ function HomeLayout({ children }: HomeLayoutProps) {
     { label: "Courses & Workshops", page: "/events" },
     { label: "Shop", page: "/shop" },
     { label: "Join The Movement", page: "/join" },
-    { label: "", page: "" },
   ];
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      <header>
+      <header className="bg-gray-950">
         <div className="flex flex-col w-fit m-auto">
-          <h1 className="text-2xl font-bold text-center">Kitab Ghar</h1>
           {!match && (
             <Link
               to="/"
@@ -35,7 +33,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
             </Link>
           )}
         </div>
-        <div className="justify-center space-x-4 hidden md:flex">
+        <div className="justify-center space-x-4  text-white py-5 hidden md:flex">
           {links.map(({ page, label }) => (
             <Link
               className={`w-fit underline hover:no-underline hover:cursor-pointer p-2 ${
@@ -48,13 +46,13 @@ function HomeLayout({ children }: HomeLayoutProps) {
           ))}
         </div>
         <button
-          className="m-4 rounded bg-blue-500 p-2 text-white md:hidden basis-1/5"
+          className="m-4 rounded  text-white md:hidden basis-1/5"
           onClick={() => setSidebarOpen(true)}
         >
-          <Icon name="fa-bars" />
+          <Icon color="white" name="fa-bars" />
         </button>
       </header>
-      <main className="m-3 mb-auto flex">
+      <main className="mb-auto flex">
         <div
           className={`fixed inset-y-0 left-0 w-64 transform bg-gray-800 text-white transition-transform md:hidden ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -90,15 +88,19 @@ function HomeLayout({ children }: HomeLayoutProps) {
             ))}
           </div>
         </div>
-        <div className="w-full mx-4 my-5 md:mx-64">{children}</div>
+        <div className="w-full">{children}</div>
       </main>
-      <footer className="bg-yellow-700 p-4 text-white w-full">
+      <footer className="bg-brand-dark_green p-4 text-white w-full text-center">
         <div className="w-3/4 m-auto">
-          <p className=" text-2xl font-bold">Library chalo</p>
-          <div className="my-4">
-            <div className="my-2">
+          <p className=" text-3xl font-bold">Library chalo !</p>
+          <div className="my-6">
+            <div className="my-1">
               <h2 className="font-bold">KARACHI</h2>
-              <a target="_blank" href="https://instagram.com/kitabghar.karachi">
+              <a
+                className="flex justify-center"
+                target="_blank"
+                href="https://instagram.com/kitabghar.karachi"
+              >
                 <Icon name="fa-instagram" color="white" />
               </a>
             </div>
@@ -112,10 +114,14 @@ function HomeLayout({ children }: HomeLayoutProps) {
               Karachi, Sindh
             </p>
           </div>
-          <div className="my-4">
-            <div className="my-2">
+          <div className="my-6">
+            <div className="my-1">
               <h2 className="font-bold">LAHORE</h2>
-              <a target="_blank" href="https://instagram.com/kitabgharlahore">
+              <a
+                className="flex justify-center"
+                target="_blank"
+                href="https://instagram.com/kitabgharlahore"
+              >
                 <Icon name="fa-instagram" color="white" />
               </a>
             </div>
