@@ -7,15 +7,6 @@ type CalendarType = {
   [month: number]: Date[];
 };
 
-type EventType = {
-  id: string;
-  name: string;
-  date: Date;
-  seatsAvailable: number;
-  seatsBooked: number;
-  paymentOptions: string;
-};
-
 export const monthNames = new Map([
   [1, "January"],
   [2, "Feburary"],
