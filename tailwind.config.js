@@ -20,6 +20,7 @@ export default {
           pink: "#FFC4E1",
           black: "#1B1919",
           white: "#FFFCF6",
+          gray: "#AFAFAF",
         },
       },
     },

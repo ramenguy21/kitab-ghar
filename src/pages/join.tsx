@@ -4,7 +4,7 @@ import HomeLayout from "../layouts/home";
 function Join() {
   return (
     <HomeLayout>
-      <div className="flex flex-col items-center align-center justify-between">
+      <div className="flex flex-col items-center align-center justify-between mx-10 md:mx-64 my-5">
         <p className="italic my-2">
           Kitab Ghar defines itself as an open-source revolutionary movement. We
           want you to join us on your own volition and help build a new South

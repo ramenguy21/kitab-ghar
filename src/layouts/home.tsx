@@ -12,7 +12,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
 
   const links = [
     {
-      label: "Who We are",
+      label: "Who We Are",
       page: "/who-we-are",
     },
     { label: "Courses & Workshops", page: "/events" },
@@ -22,18 +22,18 @@ function HomeLayout({ children }: HomeLayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      <header className="bg-gray-950">
+      <header className="bg-brand-black">
         <div className="flex flex-col w-fit m-auto">
           {!match && (
             <Link
               to="/"
-              className="text-sm text-right underline p-1 hidden md:block"
+              className="text-2xl p-4 text-brand-white text-center underline p-1 hidden md:block"
             >
               (Ghar Chalo)
             </Link>
           )}
         </div>
-        <div className="justify-center space-x-4  text-white py-5 hidden md:flex">
+        <div className="justify-center space-x-4 text-white py-5 hidden md:flex">
           {links.map(({ page, label }) => (
             <Link
               className={`w-fit underline hover:no-underline hover:cursor-pointer p-2 ${
@@ -88,7 +88,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
             ))}
           </div>
         </div>
-        <div className="w-full">{children}</div>
+        <div className="w-full bg-brand-white">{children}</div>
       </main>
       <footer className="bg-brand-dark_green p-4 text-white w-full text-center">
         <div className="w-3/4 m-auto">
