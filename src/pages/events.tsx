@@ -31,11 +31,11 @@ export function EventPage() {
 
   const event = getEventById!(params.id || "");
 
-  //possible bug, using images crashes the page.
-
   useEffect(() => {
-    setEventText(`### Welcome to Kitab Ghar`);
-  });
+    setEventText(
+      `### Welcome to Kitab Ghar![alt text](https://i.dawn.com/large/2024/08/29112657fcc146d.jpg?r=112743 "San Juan Mountains")`
+    );
+  }, []);
 
   //check the event Payment Options against the data
 
