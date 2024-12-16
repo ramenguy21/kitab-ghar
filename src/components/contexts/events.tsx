@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Papa from "papaparse";
 
 type EventType = {
   id: string;
@@ -12,6 +13,7 @@ type EventType = {
   date: Date;
   seatsAvailable: number;
   seatsBooked: number;
+  location: string;
   paymentOptions: string;
   description?: string;
 };
@@ -43,23 +45,26 @@ export const EventsProvider = ({ children }: { children: ReactNode }) => {
           "https://docs.google.com/spreadsheets/d/e/2PACX-1vRKrOtcetMw93GVvVQJhERspCSS9ubsvmqll_aFd0_caNJJwT3Z-T05XcWvDIs6UIPJHeuqVF92V7uY/pub?output=csv"
         );
         const data = await res.text();
-        const rows = data.split("\n").map((row) => row.split(","));
+        const rows = Papa.parse(data).data as any;
 
         const eventsData: EventType[] = rows
           .slice(1) // Skip header row
-          .map((row) => ({
-            id: row[0],
-            name: row[1],
-            date: new Date(
-              parseInt(row[2].substring(row[2].length - 4)),
-              parseInt(row[2].substring(0, 2)) - 1,
-              parseInt(row[2].substring(3, 5))
-            ),
-            seatsAvailable: parseInt(row[3]),
-            seatsBooked: parseInt(row[4]),
-            paymentOptions: row[5],
-            description: row[6],
-          }));
+          .map((row: any[]) => {
+            return {
+              id: row[0],
+              name: row[1],
+              date: new Date(
+                parseInt(row[2]?.substring(row[2].length - 4)),
+                parseInt(row[2]?.substring(0, 2)) - 1,
+                parseInt(row[2]?.substring(3, 5))
+              ),
+              seatsAvailable: parseInt(row[3]),
+              seatsBooked: parseInt(row[4]),
+              location: row[5],
+              paymentOptions: row[6],
+              description: row[7],
+            };
+          });
         setEvents(eventsData);
       } catch (err) {
         setError("Failed to fetch events data");

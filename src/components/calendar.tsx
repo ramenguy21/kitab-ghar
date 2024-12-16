@@ -92,9 +92,14 @@ const Calendar = () => {
           <h4>{selectedDate}</h4>
           {/*Add a map function after the filter cuz selectedDate may have
           multiple events */}
-          <h2 className="text-xl font-bold p-4">
-            {eventsForSelectedDate[0]?.name || "No events scheduled"}
-          </h2>
+          <div>
+            <h2 className="text-xl font-bold p-2">
+              {eventsForSelectedDate[0]?.name || "No events scheduled"}
+            </h2>
+            <p className="text-center bg-brand-pink p-2 rounded w-fit m-auto">
+              {eventsForSelectedDate[0]?.location || ""}
+            </p>
+          </div>
           {eventsForSelectedDate.length ? (
             <button
               onClick={() => navigate(`/event/${eventsForSelectedDate[0].id}`)}

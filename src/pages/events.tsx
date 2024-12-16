@@ -32,7 +32,6 @@ export function EventPage() {
   const event = getEventById!(params.id || "");
 
   useEffect(() => {
-    console.log(event?.description);
     setEventText(event?.description || "");
   }, [event]);
 

@@ -36,6 +36,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
         <div className="justify-center space-x-4 text-white py-5 hidden md:flex">
           {links.map(({ page, label }) => (
             <Link
+              key={label}
               className={`w-fit underline hover:no-underline hover:cursor-pointer p-2`}
               to={page}
             >
