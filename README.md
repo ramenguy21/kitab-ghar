@@ -1,51 +1,46 @@
-# React + TypeScript + Vite
+# Kitab Ghar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirements
 
-Currently, two official plugins are available:
+- Ticketing System (#1)
+- Storefront for Merch (#2)
+- Crossposting on Facebook and Instagram (#3)
+- Calendar (#1)
+- Info
+- Blog
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pages
 
-## Expanding the ESLint configuration
+- Landing
+- Who We Are
+- Courses and Workshops
+- Shop (Low Priority)
+- Join the Movement.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## TODOs
 
-- Configure the top-level `parserOptions` property like this:
+- [x] Landing Page
+- [x] End to end ticket management
+- [ ] Functionality for Courses
+- [ ] Shop
+- [ ] Integration with a good payment gateway
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Setup
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- React + TypeScript + Vite
+  Storefront API for product integration ?
+- JSON files to store calendar data.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+I rolled my own ticketing solution for this :-
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# kitab-ghar
+- Google Sheets for storing data, sue me.
+- Supabase storage for static image hosting.
+- Deployment on Netlify
+
+## Design
+
+[Figma](https://www.figma.com/design/x6Xx0dgECBkrIdqpb2fXAE/kitab-ghar-ui?node-id=0-1&t=MOsp7MNyiNbJw2L5-1)
+
+## Contributing
+
+TODO

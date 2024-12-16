@@ -21,7 +21,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="h-screen flex flex-col justify-between">
       <header className="bg-brand-black">
         <div className="flex flex-col w-fit m-auto">
           {!match && (
@@ -36,9 +36,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
         <div className="justify-center space-x-4 text-white py-5 hidden md:flex">
           {links.map(({ page, label }) => (
             <Link
-              className={`w-fit underline hover:no-underline hover:cursor-pointer p-2 ${
-                page === "/join" ? "bg-red-500 text-white rounded" : ""
-              } `}
+              className={`w-fit underline hover:no-underline hover:cursor-pointer p-2`}
               to={page}
             >
               {label}
@@ -78,6 +76,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
             )}
             {links.map(({ page, label }) => (
               <Link
+                key={label}
                 className={`w-fit p-2 ${
                   page === "/join" ? "bg-red-500 text-white rounded" : ""
                 } `}
@@ -88,7 +87,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
             ))}
           </div>
         </div>
-        <div className="w-full bg-brand-white">{children}</div>
+        <div className="w-full">{children}</div>
       </main>
       <footer className="bg-brand-dark_green p-4 text-white w-full text-center">
         <div className="w-3/4 m-auto">

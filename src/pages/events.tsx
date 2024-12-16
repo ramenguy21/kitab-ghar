@@ -10,7 +10,7 @@ function Events() {
   return (
     <HomeLayout>
       <h1 className="text-4xl text-center my-10">
-        Upcoming Events for <i>{monthNames.get(new Date().getMonth() + 1)}</i>
+        Events for <i>{monthNames.get(new Date().getMonth() + 1)}</i>
       </h1>
 
       <div className="mb-10">
@@ -32,12 +32,15 @@ export function EventPage() {
   const event = getEventById!(params.id || "");
 
   useEffect(() => {
-    setEventText(
-      `### Welcome to Kitab Ghar![alt text](https://i.dawn.com/large/2024/08/29112657fcc146d.jpg?r=112743 "San Juan Mountains")`
-    );
-  }, []);
+    console.log(event?.description);
+    setEventText(event?.description || "");
+  }, [event]);
 
   //check the event Payment Options against the data
+
+  if (!event) {
+    return <p>Loading Event, pls wait</p>;
+  }
 
   return (
     <HomeLayout>
@@ -56,8 +59,8 @@ export function EventPage() {
             <li className="my-2">
               <h5 className="font-bold">Bank Transfer</h5>
               <p>
-                Transfer payment to the below bank account and we'll email you
-                the tickets shortly
+                Transfer payment to the below bank account and we'll send you a
+                confirmation
               </p>
             </li>
             <li className="my-2">

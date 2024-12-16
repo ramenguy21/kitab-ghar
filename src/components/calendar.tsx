@@ -56,8 +56,8 @@ const Calendar = () => {
   );
 
   return (
-    <div className="flex flex-col justify-around md:flex-row">
-      <div className="grid grid-cols-7 gap-2 basis-3/5">
+    <div className="flex flex-col-reverse justify-between md:flex-row">
+      <div className="grid grid-cols-7 gap-2 basis-3/5 mt-5 md:mt-0 p-10">
         {
           //Extract out day names and add them as the first row
           calendar[date.getMonth() + 1] &&
@@ -87,8 +87,8 @@ const Calendar = () => {
             );
           })}
       </div>
-      <div className="flex ">
-        <div className="border-2 p-4 border-brand-black rounded-[64px] flex flex-col justify-around items-center transition-shadow duration-300 hover:shadow-[8px_8px_0px_rgba(255,196,225,1)]">
+      <div className="flex mx-auto">
+        <div className="border-2 p-5 py-10 border-brand-black rounded-[64px] flex flex-col justify-around items-center transition-shadow duration-300 hover:shadow-[8px_8px_0px_rgba(255,196,225,1)]">
           <h4>{selectedDate}</h4>
           {/*Add a map function after the filter cuz selectedDate may have
           multiple events */}
@@ -98,7 +98,7 @@ const Calendar = () => {
           {eventsForSelectedDate.length ? (
             <button
               onClick={() => navigate(`/event/${eventsForSelectedDate[0].id}`)}
-              className="bg-brand-pink p-2 rounded border-2 border-brand-black self-start"
+              className="bg-brand-pink p-2 rounded border-2 border-brand-black self-center md:self-start"
             >
               See details
             </button>
